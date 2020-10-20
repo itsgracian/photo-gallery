@@ -1,6 +1,6 @@
 
 # Photo Gallery
-a react app that display photos using unsplash API and react infinite scroll
+a react app that displays photos using unsplash API and react infinite scroll
 
 ## Available Scripts
 

@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
+import useInfiniteScroll from 'react-infinite-scroll-hook';
 import { Layout } from '..';
 import { listenToRandomPhoto, Photo as Photos } from '../../api';
 import './style.css';
@@ -8,12 +9,13 @@ const Photo: FC = () => {
 
   const [max = 9, setMax] = useState<number>();
 
-  const [loading, setLoading] = useState<boolean>();
+  const [loading = false, setLoading] = useState<boolean>();
 
   const [error, setError] = useState<string>();
 
   const getRandomPhoto = () => {
     setLoading(true);
+    console.log('yes m,an');
     return listenToRandomPhoto({
       max,
       callback: (error, response) => {
@@ -28,32 +30,38 @@ const Photo: FC = () => {
     });
   };
 
-  useEffect(() => {
-    getRandomPhoto();
-  }, []);
+  // useEffect(() => {
+  //   getRandomPhoto();
+  //   //eslint-disable-next-line
+  // }, []);
+
+  const infiniteScroll = useInfiniteScroll<HTMLDivElement>({
+    loading,
+    onLoadMore: getRandomPhoto,
+    scrollContainer: 'window',
+    hasNextPage: false
+  });
 
   console.log(images);
-  console.log('error', error);
 
   return (
     <Layout>
       <div className='gallery'>
-        <div className='container'>
-          <div className='row'>
-            {images &&
-              images.length > 0 &&
-              images.map((item, index) => (
+        {images.length > 0 && (
+          <div className='container'>
+            <div className='row' ref={infiniteScroll}>
+              {images.map((item, index) => (
                 <div className='col-md-4' key={index}>
                   <div className='photo'>
-                    <img
-                      src={item.urls.regular}
-                      alt=''
-                    />
+                    <img src={item.urls.regular} alt='' />
                   </div>
                 </div>
               ))}
+
+              {loading && <h1>loading ...</h1>}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </Layout>
   );

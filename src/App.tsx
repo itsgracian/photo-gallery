@@ -7,7 +7,7 @@ import './App.css';
 axios.defaults.baseURL = baseUrl;
 
 axios.defaults.headers = {
-  authorization: `${config.accessKey}`,
+  Authorization: `Client-ID ${config.accessKey}`,
 };
 
 const App = () => {

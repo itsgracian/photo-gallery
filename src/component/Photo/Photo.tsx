@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
 import { Layout } from '..';
 import { listenToRandomPhoto, Photo as Photos } from '../../api';
@@ -7,16 +7,23 @@ import './style.css';
 const Photo: FC = () => {
   const [images = [], setImages] = useState<Photos[]>();
 
-  const [max = 9, setMax] = useState<number>();
-
   const [loading = false, setLoading] = useState<boolean>();
 
   const [error, setError] = useState<string>();
 
+  const max = 9;
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        setError(undefined);
+      }, 5000);
+    }
+  });
+
   const getRandomPhoto = () => {
     setLoading(true);
-    console.log('yes m,an');
-    return listenToRandomPhoto({
+    listenToRandomPhoto({
       max,
       callback: (error, response) => {
         setLoading(false);
@@ -24,32 +31,25 @@ const Photo: FC = () => {
           setError(error);
         }
         if (response) {
-          setImages(response);
+          setImages(images.concat(response));
         }
       },
     });
   };
 
-  // useEffect(() => {
-  //   getRandomPhoto();
-  //   //eslint-disable-next-line
-  // }, []);
-
-  const infiniteScroll = useInfiniteScroll<HTMLDivElement>({
+  const infiniteRef = useInfiniteScroll<HTMLDivElement>({
     loading,
+    hasNextPage: true,
     onLoadMore: getRandomPhoto,
-    scrollContainer: 'window',
-    hasNextPage: false
   });
-
-  console.log(images);
 
   return (
     <Layout>
-      <div className='gallery'>
+      <div className='gallery' ref={infiniteRef}>
+        {error && <div className='error'>{error}</div>}
         {images.length > 0 && (
           <div className='container'>
-            <div className='row' ref={infiniteScroll}>
+            <div className='row'>
               {images.map((item, index) => (
                 <div className='col-md-4' key={index}>
                   <div className='photo'>

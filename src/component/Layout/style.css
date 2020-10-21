@@ -1,3 +1,9 @@
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
 .layoutScreen {
   position: fixed;
   width: 100%;
@@ -21,7 +27,7 @@
 .bottom > .logo{
     border-radius: 50px;
     background-color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     width: 15%;
     height: 71px;
     display: flex;
@@ -35,4 +41,24 @@
 .logo h3{
     font-size: 20px;
     font-weight: bold;
+}
+.header{
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header ul{
+    display: flex;
+}
+.header li{
+    margin: 20px;
+}
+.header .list a{
+    color: black;
+    font-size: 30px;
 }

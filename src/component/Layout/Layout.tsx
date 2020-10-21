@@ -5,19 +5,22 @@ const Layout: FC = (props) => {
   return (
     <div className='layoutScreen'>
       <div className='header'>
-        <ul className="list">
+        <ul className='list'>
           <li>
-            <a href='https://github.com/itsgracian/' target="_blank">
+            <a href='https://github.com/itsgracian/' target='_blank'>
               <span className='ion-social-github'></span>
             </a>
           </li>
           <li>
-            <a href='https://twitter.com/itsgracian' target="_blank">
+            <a href='https://twitter.com/itsgracian' target='_blank'>
               <span className='ion-social-twitter-outline'></span>
             </a>
           </li>
           <li>
-            <a href='https://www.linkedin.com/in/gratien-tuyishimire-255469113/' target="_blank">
+            <a
+              href='https://www.linkedin.com/in/gratien-tuyishimire-255469113/'
+              target='_blank'
+            >
               <span className='ion-social-linkedin'></span>
             </a>
           </li>

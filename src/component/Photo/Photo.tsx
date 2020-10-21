@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
 import { Layout } from '..';
 import { listenToRandomPhoto, Photo as Photos } from '../../api';
+import { PhotoDetail } from '.';
 import './style.css';
 
 const Photo: FC = () => {
@@ -10,6 +11,8 @@ const Photo: FC = () => {
   const [loading = false, setLoading] = useState<boolean>();
 
   const [error, setError] = useState<string>();
+
+  const [imageDetail, setImageDetail] = useState<Photos>();
 
   const max = 9;
 
@@ -43,15 +46,24 @@ const Photo: FC = () => {
     onLoadMore: getRandomPhoto,
   });
 
+  const closeImage = () => {
+    setImageDetail(undefined);
+  };
+
   return (
     <Layout>
+      {imageDetail && <PhotoDetail photo={imageDetail} close={closeImage} />}
       <div className='gallery' ref={infiniteRef}>
         {error && <div className='error'>{error}</div>}
         {images.length > 0 && (
           <div className='container'>
             <div className='row'>
               {images.map((item, index) => (
-                <div className='col-md-4' key={index}>
+                <div
+                  className='col-md-4'
+                  key={index}
+                  onClick={() => setImageDetail(item)}
+                >
                   <div className='photo'>
                     <img src={item.urls.regular} alt='' />
                   </div>

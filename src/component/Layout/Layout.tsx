@@ -7,12 +7,20 @@ const Layout: FC = (props) => {
       <div className='header'>
         <ul className='list'>
           <li>
-            <a href='https://github.com/itsgracian/' target='_blank'>
+            <a
+              href='https://github.com/itsgracian/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <span className='ion-social-github'></span>
             </a>
           </li>
           <li>
-            <a href='https://twitter.com/itsgracian' target='_blank'>
+            <a
+              href='https://twitter.com/itsgracian'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <span className='ion-social-twitter-outline'></span>
             </a>
           </li>
@@ -20,6 +28,7 @@ const Layout: FC = (props) => {
             <a
               href='https://www.linkedin.com/in/gratien-tuyishimire-255469113/'
               target='_blank'
+              rel='noopener noreferrer'
             >
               <span className='ion-social-linkedin'></span>
             </a>

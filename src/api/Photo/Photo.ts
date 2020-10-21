@@ -20,6 +20,11 @@ export interface Link {
   download: string;
   download_location: string;
 }
+
+export interface User{
+  name: string;
+  total_likes: number;
+}
 export interface Photo {
   id: string;
   created_at: string;
@@ -35,6 +40,7 @@ export interface Photo {
   location: Location;
   urls: URL;
   links: Link;
+  user: User;
 }
 export interface RandomParam {
   callback: (error: string | null, response: Photo[] | null) => void;

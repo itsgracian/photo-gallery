@@ -11,6 +11,10 @@
   align-items: center;
 }
 
+.gallery .row div{
+  margin-top: 10px;
+}
+
 .gallery .photo {
   background-color: #fff;
   border-radius: 30px;

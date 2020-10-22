@@ -2,6 +2,8 @@
 # Photo Gallery
 a react app that displays photos using unsplash API and react infinite scroll
 
+![Gallery](https://github.com/itsgracian/photo-gallery/blob/main/src/assets/images/gallery.gif)
+
 ## Available Scripts
 
 In the project directory, you can run:

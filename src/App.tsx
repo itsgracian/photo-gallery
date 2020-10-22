@@ -12,7 +12,7 @@ axios.defaults.headers = {
 };
 
 const App = () => {
-  const [theme = themes.black, setTheme] = useState<Theme>();
+  const [theme = themes.light, setTheme] = useState<Theme>();
 
   const toggleTheme = () => {
     setTheme(themes.light === theme ? themes.black : themes.light);

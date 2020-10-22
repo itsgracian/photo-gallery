@@ -65,14 +65,14 @@ a {
 .header .toggleTheme {
   position: relative;
   width: 50px;
-  height: 20px;
+  height: 25px;
   border-radius: 20px;
-  padding: 2px;
+  padding: 3px;
   cursor: pointer;
 }
 .toggleTheme .toggleBall {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 100%;
   float: right;
 }

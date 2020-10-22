@@ -6,11 +6,11 @@
   z-index: 100;
   overflow-x: hidden;
   overflow-y: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 200px;
+  padding-bottom: 0;
 }
 
 .photoDetail .detail {
@@ -82,10 +82,10 @@
   color: #ec0d0d;
 }
 
-.detail .close span{
-    font-size: 30px;
+.detail .close span {
+  font-size: 30px;
 }
-.detail .close div{
-    margin-left: 5px;
-    font-size: 14px;
+.detail .close div {
+  margin-left: 5px;
+  font-size: 14px;
 }

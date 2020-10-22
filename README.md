@@ -1,6 +1,6 @@
 
 # Photo Gallery
-a react app that displays photos using unsplash API and react infinite scroll
+a react app that displays photos using [Unsplash API](https://unsplash.com/documentation) and [react infinite scroll hook](https://www.npmjs.com/package/react-infinite-scroll-hook)
 
 ![Gallery](https://github.com/itsgracian/photo-gallery/blob/main/src/assets/images/gallery.gif)
 
